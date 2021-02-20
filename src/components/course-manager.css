@@ -1,0 +1,12 @@
+.wbdv-padding{
+    color:white;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:#2985e6
+}
+
+.wbdv-sticky-top {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
