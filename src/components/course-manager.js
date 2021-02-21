@@ -2,7 +2,15 @@ import React from "react";
 import './course-manager.css'
 import CourseTable from "./course-table";
 import CourseGrid from "./course-grid";
+import {BrowserRouter, Route} from "react-router-dom";
+
 class CourseManager extends React.Component{
+    state = {
+        courses:[
+            {title : "CS5610",lastModified:"me"},
+            {title: "CS5010",lastModified:"you"}
+        ]
+    }
      render() {
         return(
             <div>
@@ -20,8 +28,10 @@ class CourseManager extends React.Component{
                         <i className="fa fa-plus-circle fa-2x"></i>
                     </div>
                 </div>
-                <CourseTable/>
+                {/*<CourseTable courses = {this.state.courses}> </CourseTable>*/}
                 {/*<CourseGrid/>*/}
+                <Route path="/courses/grid" component={CourseGrid}/>
+                <Route path="/courses/table" component={CourseTable}/>
             </div>
         )
     }

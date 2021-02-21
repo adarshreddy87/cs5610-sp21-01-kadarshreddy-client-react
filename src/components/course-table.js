@@ -1,9 +1,24 @@
 import React from "react";
-
+import CourseRow from "./course-row";
+import {BrowserRouter,Route,Link} from "react-router-dom";
+import CourseGrid from "./course-grid";
 class CourseTable extends React.Component{
+    state = {
+        courses:[
+            {title : "CS5610",lastModified:"me"},
+            {title: "CS5010",lastModified:"you"}
+        ]
+    }
+    addCourse = () => {
+       const newCourse = {title: "New" , lastModified: "me"}
+       this.state.courses.push(newCourse)
+        this.setState(this.state)
+    }
     render() {
         return(
+
             <div className="container-fluid">
+                <button onClick={this.addCourse}>Add Course</button>
             <table className="table second-div-padding">
                 <thead>
                     <tr>
@@ -14,22 +29,25 @@ class CourseTable extends React.Component{
                             <i className="fa fa-sort"></i>
                             &nbsp;
                             &nbsp;
-                            <i className="fa fa-th"></i>
+                            <Link to="/courses/grid">
+                                <i className="fa fa-th float-right"></i>
+                            </Link>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>CS5610</td>
-                        <td>me</td>
-                        <td>1/1/2021</td>
-                        <td>
-                            <i className="fa fa-trash"></i>
-                            <i className="fa fa-edit"></i>
-                            <i className="fa fa-check"></i>
-                        </td>
-                    </tr>
-                </tbody>
+                {
+                    this.state.courses.map(course =>
+                        <CourseRow
+                            title = {course.title}>
+                            lastModified = {course.lastModified}
+                        </CourseRow>
+                    )
+                }
+                <CourseRow title="CS5610"/>
+                <CourseRow title="CS5800"/>
+                <CourseRow title="CS5200"/>
+            </tbody>
             </table>
             </div>
         )
