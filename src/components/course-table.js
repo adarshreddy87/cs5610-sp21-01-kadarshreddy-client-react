@@ -3,22 +3,14 @@ import CourseRow from "./course-row";
 import {BrowserRouter,Route,Link} from "react-router-dom";
 import CourseGrid from "./course-grid";
 class CourseTable extends React.Component{
-    state = {
-        courses:[
-            {title : "CS5610",lastModified:"me"},
-            {title: "CS5010",lastModified:"you"}
-        ]
+    constructor(props) {
+        super(props);
     }
-    addCourse = () => {
-       const newCourse = {title: "New" , lastModified: "me"}
-       this.state.courses.push(newCourse)
-        this.setState(this.state)
-    }
+
     render() {
         return(
-
             <div className="container-fluid">
-                <button onClick={this.addCourse}>Add Course</button>
+                {/*<button onClick={this.addCourse}>Add Course</button>*/}
             <table className="table second-div-padding">
                 <thead>
                     <tr>
@@ -37,16 +29,16 @@ class CourseTable extends React.Component{
                 </thead>
                 <tbody>
                 {
-                    this.state.courses.map(course =>
+                    this.props.courses.map(course =>
                         <CourseRow
-                            title = {course.title}>
-                            lastModified = {course.lastModified}
-                        </CourseRow>
+                            title={course.title}
+                            lastModified={course.lastModified}
+                            ownedBy={course.ownedBy}/>
                     )
                 }
-                <CourseRow title="CS5610"/>
-                <CourseRow title="CS5800"/>
-                <CourseRow title="CS5200"/>
+                {/*<CourseRow title="CS5610"/>*/}
+                {/*<CourseRow title="CS5800"/>*/}
+                {/*<CourseRow title="CS5200"/>*/}
             </tbody>
             </table>
             </div>

@@ -1,8 +1,16 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
-const CourseEditor = () => {
+const CourseEditor = ({history}) => {
     return(
-        <h1>Course Editor</h1>
+        <div>
+        <h1>
+            <Link to="/courses">
+                <i className="fa fa-arrow-left"></i>
+            </Link>
+            <span onClick={() => history.goBack()}>Go Back</span>
+            Course Editor</h1>
+        </div>
     )
 }
 
