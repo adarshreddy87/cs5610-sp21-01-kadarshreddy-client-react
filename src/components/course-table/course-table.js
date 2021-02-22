@@ -19,13 +19,13 @@ class CourseTable extends React.Component{
                         <th className="d-none d-lg-table-cell">Modified Date</th>
                         <th>
                             <a className="ml-2" href="#">
-                                <i className="fa fa-folder"/>
+                                <i className="fa fa-folder fa-2x"/>
                             </a>
                             <a className="ml-2" href="#">
-                                <i className="fa fa-sort"/>
+                                <i className="fa fa-sort-alpha-up-alt fa-2x"/>
                             </a>
                             <Link to="/courses/grid">
-                                <i className="ml-2 fa fa-th"></i>
+                                <i className="ml-2 fa fa-th fa-2x"></i>
                             </Link>
                         </th>
                     </tr>

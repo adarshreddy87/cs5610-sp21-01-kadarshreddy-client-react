@@ -10,6 +10,10 @@ export default class CourseManager extends React.Component{
         courses:[]
     }
 
+    state2 ={
+        title:""
+    }
+
 componentDidMount() {
         findAllCourses()
             .then(courses => this.setState({courses:courses}))
@@ -18,7 +22,7 @@ componentDidMount() {
     addCourse = () => {
 
         const newCourse = {
-            title: "Old",
+            title: "New Course",
             ownedBy: "me",
             lastModified: "2/10/2021"
         }
@@ -71,10 +75,11 @@ componentDidMount() {
         return(
             <div>
                 <div className="row wbdv-padding">
+
                     <div className="col-2 col-sm-3 col-md-1">
                         <i className="fa fa-bars fa-2x"></i>
                     </div>
-                    <div className="d-none d-md-block col-md-2">
+                    <div className="d-none d-lg-block col-md-2">
                         <h5>Course Manager</h5>
                     </div>
                     <div className="col-8 col-sm-6 col-md-7">

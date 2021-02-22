@@ -4,6 +4,13 @@ export const findAllCourses = () =>{
     return fetch(COURSES_URL).then(response => response.json())
 }
 
+export const findCourseById = (courseId) => {
+    return fetch(`${COURSES_URL}/${courseId}`,{
+        method: 'GET'
+    })
+        .then(response => response.json())
+}
+
 export const deleteCourse = (courseId) =>{
     return fetch(`${COURSES_URL}/${courseId}`,{
         method: 'DELETE'
@@ -34,6 +41,7 @@ export const updateCourse = (courseId,course) => {
 
 const api = {
     findAllCourses,
+    findCourseById,
     deleteCourse,
     createCourse,
     updateCourse

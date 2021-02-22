@@ -9,17 +9,29 @@ import {deleteCourse} from "../../services/course-service";
 const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
     return(
                 <div>
-                    <div className="row container">
-                        <div className="col-md-10"></div>
-                        <div className="col-md-1">
-                            <i className="fa fa-sort"></i>
-                            <Link to="/courses/table">
-                                <i className="fa fa-list float-right"></i>
-                            </Link>
-                        </div>
-                        <div className="col-md-1"></div>
-                    </div>
-                    <div className="row">
+                    <table className="table">
+                        <thead>
+                        <tr>
+                            <th className="d-none d-md-table-cell">Recent Documents</th>
+                            <th className="d-none d-md-table-cell">
+                                Owned by me<i className="fa fa-arrow-down"></i>
+                            </th>
+                            <th></th>
+                            <th>
+                                <a href="#">
+                                    <i className="fa fa-folder fa-2x"/>
+                                </a>
+                                <a className="ml-2" href="#">
+                                    <i className="fa fa-sort-alpha-up-alt fa-2x"/>
+                                </a>
+                                <Link to="/courses/table">
+                                    <i className="ml-2 fa fa-list fa-2x"></i>
+                                </Link>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div className="row container-fluid">
                         {
                             courses.map(course =>
                                 <CourseCard course={course}
