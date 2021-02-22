@@ -15,14 +15,17 @@ class CourseTable extends React.Component{
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Owned by</th>
-                        <th>Modified Date</th>
+                        <th className="d-none d-sm-table-cell">Owned by</th>
+                        <th className="d-none d-lg-table-cell">Modified Date</th>
                         <th>
-                            <i className="fa fa-sort"></i>
-                            &nbsp;
-                            &nbsp;
+                            <a className="ml-2" href="#">
+                                <i className="fa fa-folder"/>
+                            </a>
+                            <a className="ml-2" href="#">
+                                <i className="fa fa-sort"/>
+                            </a>
                             <Link to="/courses/grid">
-                                <i className="fa fa-th float-right"></i>
+                                <i className="ml-2 fa fa-th"></i>
                             </Link>
                         </th>
                     </tr>
@@ -31,6 +34,8 @@ class CourseTable extends React.Component{
                 {
                     this.props.courses.map(course =>
                         <CourseRow
+                            deleteCourse={this.props.deleteCourse}
+                            course={course}
                             title={course.title}
                             lastModified={course.lastModified}
                             ownedBy={course.ownedBy}/>

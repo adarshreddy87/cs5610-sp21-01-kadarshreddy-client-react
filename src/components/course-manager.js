@@ -3,39 +3,33 @@ import './course-manager.css'
 import CourseTable from "./course-table";
 import CourseGrid from "./course-grid";
 import {BrowserRouter, Route} from "react-router-dom";
-import courseService, {findAllCourses,deleteCourse,createCourse,updateCourse} from "../services/course-service";
+import courseService, {createCourse, findAllCourses} from "../services/course-service";
 
-class CourseManager extends React.Component{
+export default class CourseManager extends React.Component{
     state = {
-        courses:[
-            {title : "CS5610",ownedBy:"me"},
-            {title: "CS5010",ownedBy:"you"}
-        ]
+        courses:[]
     }
 
-// componentDidMount() {
-//         findAllCourses()
-//             .then(courses => this.setState({courses:courses}))
-// }
-
+componentDidMount() {
+        findAllCourses()
+            .then(courses => this.setState({courses:courses}))
+}
+//
     addCourse = () => {
-        const newCourse =
-            {   title: "New" ,
-                lastModified:'1/1/2021' ,
-                ownedBy: "me"}
+        const newCourse = {
+            title: "Old",
+            ownedBy: "me",
+            lastModified: "2/10/2021"
+        }
+//         // alert('add course')
+//
         courseService.createCourse(newCourse)
-            .then(course => this.setState(
-                (prevState) => ({
-                    ...prevState,
+            .then(actualCourse => this.setState(prevState => ({
                     courses: [
-                        ...prevState.courses,
-                        course
+                        ...prevState.courses, actualCourse
                     ]
-                })))
-    //         // .then(actualCourse => {
-            //     this.state.courses.push(actualCourse)
-            //     this.setState(this.state)
-            // })
+                })
+            ))
     }
 
     deleteCourse = (courseToDelete) => {
@@ -61,12 +55,11 @@ class CourseManager extends React.Component{
                     <div className="col-8 col-sm-6 col-md-7">
                         <input type="text" className="form-control search-color" placeholder="New Course Title"/>
                     </div>
-                    <div className="col-2 col-sm-3 col-md-1">
+                    <div onClick={this.addCourse} className="btn col-2 col-sm-3 col-md-1">
                         <i className="fa fa-plus-circle fa-2x float-right"></i>
                     </div>
                     <div className="col-md-1"></div>
                 </div>
-                <button onClick={this.addCourse}>Add Course</button>
                 {/*<CourseTable courses = {this.state.courses}> </CourseTable>*/}
                 {/*<CourseGrid/>*/}
                 {/*<Route path="/courses/grid" component={CourseGrid}/>*/}
@@ -83,5 +76,3 @@ class CourseManager extends React.Component{
         )
     }
 }
-
-export default CourseManager

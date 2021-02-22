@@ -9,6 +9,7 @@ import React from "react";
 function App() {
   return (
       <BrowserRouter>
+          {/*<Route path="/" component={Home}/>*/}
           <Route path="/courses" component={CourseManager}/>
           {/*<Route path="/editor" component={CourseEditor}/>*/}
           <Route path="/editor" render={(props) =>

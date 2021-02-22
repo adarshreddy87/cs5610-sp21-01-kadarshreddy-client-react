@@ -3,6 +3,8 @@ import {BrowserRouter,Route,Link} from "react-router-dom";
 import CourseTable from "./course-table";
 import CourseRow from "./course-row";
 import CourseCard from "./course-card";
+import CourseManager from "./course-manager";
+import {deleteCourse} from "../services/course-service";
 
 const CourseGrid = ({courses}) => {
     return(
@@ -21,7 +23,9 @@ const CourseGrid = ({courses}) => {
                         </Link>
                     </div>
                     {
-                        courses.map(course => <CourseCard cardCourse={course}/>
+                        courses.map(course => <CourseCard
+                            deleteCourse = {deleteCourse}
+                            course={course}/>
                         )
                     }
                     {/*{*/}
