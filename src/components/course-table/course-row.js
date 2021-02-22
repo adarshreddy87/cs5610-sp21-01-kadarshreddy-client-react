@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import courseService,{deleteCourse, updateCourse} from "../services/course-service";
+import courseService,{deleteCourse, updateCourse} from "../../services/course-service";
 
 const CourseRow = ({deleteCourse,
                        updateCourse,
                        course,
-                       updateRowCourse,
+                       // updateRowCourse,
                         // saveCourse,
                        lastModified,
                        ownedBy}) => {
@@ -35,8 +35,8 @@ const CourseRow = ({deleteCourse,
                         value={newTitle}/>
                 }
             </td>
-            <td className="d-none d-sm-table-cell">{course.ownedBy}</td>
-            <td className="d-none d-md-table-cell">{course.lastModified}</td>
+            <td className="d-none d-md-table-cell">{course.ownedBy}</td>
+            <td className="d-none d-lg-table-cell">{course.lastModified}</td>
             <td>
                 {/*<i className="fa fa-trash"></i>*/}
                 {

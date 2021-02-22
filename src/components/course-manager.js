@@ -1,7 +1,7 @@
 import React from "react";
-import './course-manager.css'
-import CourseTable from "./course-table";
-import CourseGrid from "./course-grid";
+import '../styles/course-manager.css'
+import CourseTable from "./course-table/course-table";
+import CourseGrid from "./course-grid/course-grid";
 import {BrowserRouter, Route} from "react-router-dom";
 import courseService, {createCourse, findAllCourses,deleteCourse} from "../services/course-service";
 
@@ -16,6 +16,7 @@ componentDidMount() {
 }
 //
     addCourse = () => {
+
         const newCourse = {
             title: "Old",
             ownedBy: "me",
@@ -77,11 +78,11 @@ componentDidMount() {
                         <h5>Course Manager</h5>
                     </div>
                     <div className="col-8 col-sm-6 col-md-7">
-                        <input id="title-fld"
+                        <input id="courseTitleFld"
                                 type="text"
                                className="form-control
                                search-color"
-                               placeholder="New Course Title"
+                               // placeholder="New Course Title"
                         // onChange={(e) => {
                         //     const newTitle = e.target.value
                         //     this.setState({title:newTitle})

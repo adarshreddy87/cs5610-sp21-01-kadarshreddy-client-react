@@ -1,10 +1,10 @@
 import React from "react";
 import {BrowserRouter,Route,Link} from "react-router-dom";
-import CourseTable from "./course-table";
-import CourseRow from "./course-row";
+import CourseTable from "../course-table/course-table";
+import CourseRow from "../course-table/course-row";
 import CourseCard from "./course-card";
-import CourseManager from "./course-manager";
-import {deleteCourse} from "../services/course-service";
+import CourseManager from "../course-manager";
+import {deleteCourse} from "../../services/course-service";
 
 const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
     return(

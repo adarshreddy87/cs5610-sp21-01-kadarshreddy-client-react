@@ -1,7 +1,7 @@
 import React from "react";
 import CourseRow from "./course-row";
 import {BrowserRouter,Route,Link} from "react-router-dom";
-import CourseGrid from "./course-grid";
+import CourseGrid from "../course-grid/course-grid";
 class CourseTable extends React.Component{
     constructor(props) {
         super(props);
@@ -15,8 +15,8 @@ class CourseTable extends React.Component{
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th className="d-none d-sm-table-cell">Owned by</th>
-                        <th className="d-none d-md-table-cell">Modified Date</th>
+                        <th className="d-none d-md-table-cell">Owned by</th>
+                        <th className="d-none d-lg-table-cell">Modified Date</th>
                         <th>
                             <a className="ml-2" href="#">
                                 <i className="fa fa-folder"/>
@@ -44,9 +44,6 @@ class CourseTable extends React.Component{
                             ownedBy={course.ownedBy}/>
                     )
                 }
-                {/*<CourseRow title="CS5610"/>*/}
-                {/*<CourseRow title="CS5800"/>*/}
-                {/*<CourseRow title="CS5200"/>*/}
             </tbody>
             </table>
             </div>
