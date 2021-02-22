@@ -1,17 +1,24 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import {deleteCourse} from "../services/course-service";
+import courseService,{deleteCourse, updateCourse} from "../services/course-service";
 
-const CourseRow = ({deleteCourse,course,
+const CourseRow = ({deleteCourse,
+                       updateCourse,
+                       course,
+                       updateRowCourse,
                         // saveCourse,
                        lastModified,
                        ownedBy}) => {
     const [editing, setEditing] = useState(false)
-    const [title, setTitle] = useState(course.title)
-    // const saveCourse = () => {
-    //     setEditing(false)
-    //
-    // }
+    const [newTitle, setNewTitle] = useState(course.title)
+    const saveTitle = () => {
+        setEditing(false)
+        const newCourse = {
+            ...course,
+            title: newTitle
+        }
+        updateCourse(newCourse)
+    }
     return (
         <tr>
             <td>
@@ -22,15 +29,14 @@ const CourseRow = ({deleteCourse,course,
                 }
                 {
                     editing &&
-                    <input
-                        onChange={(e) =>
-                        setTitle(e.target.event)
-                        }
-                        value={title}/>
+                    <input className="form-control"
+                        onChange={(event) =>
+                        setNewTitle(event.target.value)}
+                        value={newTitle}/>
                 }
             </td>
             <td className="d-none d-sm-table-cell">{course.ownedBy}</td>
-            <td className="d-none d-sm-table-cell">{course.lastModified}</td>
+            <td className="d-none d-md-table-cell">{course.lastModified}</td>
             <td>
                 {/*<i className="fa fa-trash"></i>*/}
                 {
@@ -40,7 +46,8 @@ const CourseRow = ({deleteCourse,course,
                 }
                 {
                     editing &&
-                    <i onClick={() => setEditing(false)}
+                    <i onClick={() => saveTitle()
+                        }
                        className="btn fas fa-check"></i>
                 }
                 {

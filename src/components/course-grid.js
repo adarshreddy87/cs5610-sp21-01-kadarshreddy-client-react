@@ -6,10 +6,10 @@ import CourseCard from "./course-card";
 import CourseManager from "./course-manager";
 import {deleteCourse} from "../services/course-service";
 
-const CourseGrid = ({courses}) => {
+const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
     return(
                 <div>
-                    <div className="row">
+                    <div className="row container">
                         <div className="col-md-10"></div>
                         <div className="col-md-1">
                             <i className="fa fa-sort"></i>
@@ -18,16 +18,18 @@ const CourseGrid = ({courses}) => {
                             </Link>
                         </div>
                         <div className="col-md-1"></div>
-                        <Link to="/editor">
-                            cs5610
-                        </Link>
                     </div>
-                    {
-                        courses.map(course => <CourseCard
-                            deleteCourse = {deleteCourse}
-                            course={course}/>
-                        )
-                    }
+                    <div className="row">
+                        {
+                            courses.map(course =>
+                                <CourseCard course={course}
+                                deleteCourse={deleteCourse}
+                                updateCourse={updateCourse}/>
+                            )
+                        }
+                    </div>
+
+
                     {/*{*/}
                     {/*    this.courses.map(course =>*/}
                     {/*        <CourseCard*/}
@@ -35,6 +37,7 @@ const CourseGrid = ({courses}) => {
                     {/*    )*/}
                     {/*}*/}
                 </div>
+
     )
 }
 

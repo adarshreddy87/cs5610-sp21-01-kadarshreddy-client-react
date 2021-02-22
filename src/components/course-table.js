@@ -9,14 +9,14 @@ class CourseTable extends React.Component{
 
     render() {
         return(
-            <div className="container-fluid">
+            <div className="container">
                 {/*<button onClick={this.addCourse}>Add Course</button>*/}
             <table className="table second-div-padding">
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th className="d-none d-sm-table-cell">Owned by</th>
-                        <th className="d-none d-lg-table-cell">Modified Date</th>
+                        <th className="d-none d-md-table-cell">Modified Date</th>
                         <th>
                             <a className="ml-2" href="#">
                                 <i className="fa fa-folder"/>
@@ -34,7 +34,10 @@ class CourseTable extends React.Component{
                 {
                     this.props.courses.map(course =>
                         <CourseRow
+                            key={course._id}
                             deleteCourse={this.props.deleteCourse}
+                            updateCourse={this.props.updateCourse}
+                            // updateRowCourse={this.props.updateRowCourse}
                             course={course}
                             title={course.title}
                             lastModified={course.lastModified}
