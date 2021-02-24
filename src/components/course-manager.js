@@ -7,12 +7,10 @@ import courseService, {createCourse, findAllCourses,deleteCourse} from "../servi
 
 export default class CourseManager extends React.Component{
     state = {
-        courses:[]
-    }
-
-    state2 ={
+        courses:[],
         title:""
     }
+
 
 componentDidMount() {
         findAllCourses()
@@ -22,9 +20,9 @@ componentDidMount() {
     addCourse = () => {
 
         const newCourse = {
-            title: "New Course",
+            title: this.state.title,
             ownedBy: "me",
-            lastModified: "2/10/2021"
+            lastModified: new Date().getUTCFullYear()
         }
 //         // alert('add course')
 //
@@ -34,6 +32,7 @@ componentDidMount() {
                     this.setState(this.state)
                 }
             )
+        document.getElementById("courseTitleFld").value=""
     }
 
     deleteCourse = (courseToDelete) => {
@@ -62,24 +61,15 @@ componentDidMount() {
                 })
             })
     }
-    // updateRowCourses = () => {
-    //     findAllCourses()
-    //         .then(courses => {
-    //             this.setState({
-    //                 courses: courses
-    //             })
-    //         })
-    // }
 
      render(){
         return(
             <div>
                 <div className="row wbdv-padding">
-
                     <div className="col-2 col-sm-3 col-md-1">
-                        <i className="fa fa-bars fa-2x"></i>
+                        <i className="float-right fa fa-bars fa-2x"></i>
                     </div>
-                    <div className="d-none d-lg-block col-md-2">
+                    <div style={{textAlign:"center"}} className="d-none d-lg-block col-md-2">
                         <h5>Course Manager</h5>
                     </div>
                     <div className="col-8 col-sm-6 col-md-7">
@@ -88,10 +78,10 @@ componentDidMount() {
                                className="form-control
                                search-color"
                                // placeholder="New Course Title"
-                        // onChange={(e) => {
-                        //     const newTitle = e.target.value
-                        //     this.setState({title:newTitle})
-                        // }}
+                        onChange={(e) => {
+                            const newTitle = e.target.value
+                            this.setState({title:newTitle})
+                        }}
                                placeholder="New Course Title"/>
                     </div>
                     <div onClick={this.addCourse} className="btn col-2 col-sm-3 col-md-1">
@@ -106,7 +96,6 @@ componentDidMount() {
                     <CourseGrid courses={this.state.courses}
                                 createCourse={this.addCourse}
                                 deleteCourse={this.deleteCourse}
-                                // updateRowCourses={this.updateRowCourses}
                                 updateCourse={this.updateCourse}/>
                 </Route>
                 {/*<Route path="/courses/table" component={CourseTable}/>*/}

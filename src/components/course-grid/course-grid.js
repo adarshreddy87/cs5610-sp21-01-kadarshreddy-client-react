@@ -12,18 +12,28 @@ const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
                     <table className="table">
                         <thead>
                         <tr>
+                            <th className="d-md-none"></th>
+                            <th className="d-md-none"></th>
+                            <th className="d-md-none"></th>
+                            <th className="d-md-none"></th>
+                            <th className="d-md-none"></th>
+                            <th className="d-md-none"></th>
                             <th className="d-none d-md-table-cell">Recent Documents</th>
                             <th className="d-none d-md-table-cell">
                                 Owned by me<i className="fa fa-arrow-down"></i>
                             </th>
                             <th></th>
                             <th>
-                                <a href="#">
+                                <Link to="#">
                                     <i className="fa fa-folder fa-2x"/>
-                                </a>
-                                <a className="ml-2" href="#">
-                                    <i className="fa fa-sort-alpha-up-alt fa-2x"/>
-                                </a>
+                                </Link>
+                            {/*</th>*/}
+                            {/*<th>*/}
+                                <Link to="#">
+                                    <i className="ml-2 fa fa-sort-alpha-up-alt fa-2x"/>
+                                </Link>
+                            {/*</th>*/}
+                            {/*<th>*/}
                                 <Link to="/courses/table">
                                     <i className="ml-2 fa fa-list fa-2x"></i>
                                 </Link>

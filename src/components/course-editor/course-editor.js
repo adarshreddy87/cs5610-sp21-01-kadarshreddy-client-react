@@ -9,13 +9,13 @@ const CourseEditor = ({history}) => {
                     <div className="col-1"></div>
                     <div className="col-1 navigation-title">
                     <Link to="/courses">
-                        <i onClick={() => history.goBack()} className="fa fa-arrow-left fa-2x"></i>
+                        <i style={{color:"white"}} onClick={() => history.goBack()} className="fa fa-times fa-2x"></i>
                     </Link>
                     </div>
                     <div className="navigation-title col-2">
-                        <h5>CS5610-WebDev</h5>
+                        <h5>CS5610 - Web Dev</h5>
                     </div>
-                    <div className="col-8">
+                    <div className="tab-padding col-8">
                         <ul className="nav nav-tabs nav-justified">
                             <li className="nav-item">
                                 <a className="a-btn btn nav-link" href="#">
@@ -38,8 +38,8 @@ const CourseEditor = ({history}) => {
                                 <a className="btn a-btn nav-link" href="#">Settings</a>
                             </li>
                             <li className="nav-item">
-                                <a className="btn a-btn nav-link" href="#">
-                                    <i className="btn fa fa-plus"></i>
+                                <a className="nav-link btn a-btn" href="#">
+                                    <i className="fa fa-plus fa-2x"></i>
                                 </a>
                             </li>
                         </ul>
@@ -55,32 +55,32 @@ const CourseEditor = ({history}) => {
                                     <ul className="list-group">
                                         <li className="btn m-btn btn-block list-group-item active">
                                             Module 1 -jQuery
-                                            <i className="pull-right fa fa-trash"></i>
+                                            <i className="fa-pull-right fa fa-trash"></i>
                                         </li>
                                         <li className="btn m-btn btn-block list-group-item">
                                             Module 2-React
-                                            <i className="pull-right fa fa-trash"></i>
+                                            <i className="fa-pull-right fa fa-trash"></i>
                                         </li>
                                         <li className="btn m-btn btn-block list-group-item">Module 3-Redux
-                                            <i className="pull-right fa fa-trash"></i>
+                                            <i className="float-right fa fa-trash"></i>
                                         </li>
                                         <li className="btn m-btn btn-block list-group-item">Module 4-Native
-                                            <i className="pull-right fa fa-trash"></i>
+                                            <i className="float-right fa fa-trash"></i>
                                         </li>
                                         <li className="btn m-btn btn-block list-group-item">Module 5-Angular
-                                            <i className="pull-right fa fa-trash"></i>
+                                            <i className="float-right fa fa-trash"></i>
                                         </li>
                                         <li className="btn m-btn btn-block list-group-item">Module 6-Node
-                                            <i className="pull-right fa fa-trash"></i>
+                                            <i className="float-right fa fa-trash"></i>
                                         </li>
                                         <li className="btn m-btn btn-block list-group-item">Module 7-Mongo
-                                            <i className="pull-right fa fa-trash"></i>
+                                            <i className="float-right fa fa-trash"></i>
                                         </li>
                                         <div className="row">
                                             <div className="col-10"></div>
                                             <div className="col-2">
-                                                <a className="btn a-btn" href="">
-                                                    <i className="pull-right fa fa-plus fa-2x"></i>
+                                                <a className="btn a-btn fa fa-plus fa-2x" href="">
+                                                    {/*<i className="pull-right fa fa-plus fa-2x"></i>*/}
                                                 </a>
                                             </div>
                                         </div>
@@ -105,8 +105,8 @@ const CourseEditor = ({history}) => {
                                     <a className="a-btn btn pill-bg nav-link" href="#">Topic 4</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="btn" href="#">
-                                        <i className="fa fa-plus fa-2x"></i>
+                                    <a className="btn fa fa-plus fa-2x" href="#">
+                                        {/*<i className="fa fa-plus fa-2x"></i>*/}
                                     </a>
                                 </li>
                             </ul>

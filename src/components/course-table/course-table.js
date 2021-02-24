@@ -37,7 +37,6 @@ class CourseTable extends React.Component{
                             key={course._id}
                             deleteCourse={this.props.deleteCourse}
                             updateCourse={this.props.updateCourse}
-                            // updateRowCourse={this.props.updateRowCourse}
                             course={course}
                             title={course.title}
                             lastModified={course.lastModified}
