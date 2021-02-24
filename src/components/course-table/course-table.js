@@ -17,15 +17,25 @@ class CourseTable extends React.Component{
                         <th>Title</th>
                         <th className="d-none d-md-table-cell">Owned by</th>
                         <th className="d-none d-lg-table-cell">Modified Date</th>
+                        <th className="d-md-none"></th>
+                        <th className="d-md-none"></th>
+                        <th className="d-md-none"></th>
+                        <th className="d-md-none"></th>
+                        <th className="d-md-none"></th>
+                        <th className="d-md-none"></th>
                         <th>
-                            <a className="ml-2" href="#">
+                            <a className="ml-2 float-right  " href="#">
                                 <i className="fa fa-folder fa-2x"/>
                             </a>
-                            <a className="ml-2" href="#">
+                        </th>
+                        <th>
+                            <a className="float-right ml-2" href="#">
                                 <i className="fa fa-sort-alpha-up-alt fa-2x"/>
                             </a>
+                        </th>
+                        <th>
                             <Link to="/courses/grid">
-                                <i className="ml-2 fa fa-th fa-2x"></i>
+                                <i className="float-left ml-2 fa fa-th fa-2x"></i>
                             </Link>
                         </th>
                     </tr>

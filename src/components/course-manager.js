@@ -65,6 +65,7 @@ componentDidMount() {
      render(){
         return(
             <div>
+                <BrowserRouter>
                 <div className="row wbdv-padding">
                     <div className="col-2 col-sm-3 col-md-1">
                         <i className="float-right fa fa-bars fa-2x"></i>
@@ -108,6 +109,7 @@ componentDidMount() {
                 <footer id ="footer">
                     <em onClick={this.addCourse} id="footerIcon" className="fa fa-plus-circle fa-3x color-red"></em>
                 </footer>
+                </BrowserRouter>
             </div>
         )
     }

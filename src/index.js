@@ -7,9 +7,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CourseManager from "./components/course-manager";
+import {BrowserRouter} from "react-router-dom";
+import CourseTable from "./components/course-table/course-table";
+import HomePage from "./components/HomePage";
 
 ReactDOM.render(
-    <App />,
+    <App/>,
   document.getElementById('root')
 );
 
