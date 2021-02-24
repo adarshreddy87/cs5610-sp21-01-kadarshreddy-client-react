@@ -90,9 +90,6 @@ componentDidMount() {
                     </div>
                     <div className="col-md-1"></div>
                 </div>
-                {/*<CourseTable courses = {this.state.courses}> </CourseTable>*/}
-                {/*<CourseGrid/>*/}
-                {/*<Route path="/courses/grid" component={CourseGrid}/>*/}
                 <Route path="/courses/grid" exact={true}>
                     <CourseGrid courses={this.state.courses}
                                 createCourse={this.addCourse}
