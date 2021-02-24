@@ -50,14 +50,6 @@ const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
                             )
                         }
                     </div>
-
-
-                    {/*{*/}
-                    {/*    this.courses.map(course =>*/}
-                    {/*        <CourseCard*/}
-                    {/*            title={course.title}/>*/}
-                    {/*    )*/}
-                    {/*}*/}
                 </div>
 
     )

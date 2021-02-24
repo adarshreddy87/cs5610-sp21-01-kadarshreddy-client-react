@@ -17,9 +17,9 @@ const HomePage = () => {
                 <Link to="/courses/grid" className="list-group-item">
                     Courses Grid
                 </Link>
-                <Link to="/editor" className="list-group-item">
-                    Course Editor
-                </Link>
+                {/*<Link to="/editor" className="list-group-item">*/}
+                {/*    Course Editor*/}
+                {/*</Link>*/}
             </div>
             </BrowserRouter>
         </div>

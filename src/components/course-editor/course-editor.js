@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import '../../styles/course-editor.css'
 const CourseEditor = ({history}) => {
     return(
-        <div>
+
             <div>
                 <div className="row navigation-style">
                     <div className="col-1"></div>
@@ -115,7 +115,6 @@ const CourseEditor = ({history}) => {
                 </div>
 
             </div>
-        </div>
     )
 }
 

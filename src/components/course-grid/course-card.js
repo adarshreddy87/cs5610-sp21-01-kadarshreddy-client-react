@@ -45,9 +45,9 @@ const CourseCard = ({
                            value={newTitle}/>
                 }
                 <p className="card-text">Some description is given for this course which is very useful.</p>
-                <Link to="/editor" className="btn btn-primary">
+                <a href="/editor" className="btn btn-primary">
                     {course.title}
-                </Link>
+                </a>
             </div>
             {
                 !editing &&

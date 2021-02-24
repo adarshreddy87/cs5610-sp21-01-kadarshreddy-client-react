@@ -23,9 +23,9 @@ const CourseRow = ({deleteCourse,
         <tr>
             <td>
                 {   !editing &&
-                    <Link to="/editor">
+                    <a href="/editor" exact={true}>
                     {course.title}
-                </Link>
+                    </a>
                 }
                 {
                     editing &&
@@ -37,8 +37,6 @@ const CourseRow = ({deleteCourse,
             </td>
             <td className="d-none d-md-table-cell">{course.ownedBy}</td>
             <td className="d-none d-lg-table-cell">{course.lastModified}</td>
-            <td></td>
-            <td></td>
             <td>
                 {/*<i className="fa fa-trash"></i>*/}
                 {
