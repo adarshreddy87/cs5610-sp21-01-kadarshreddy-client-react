@@ -30,9 +30,9 @@ componentDidMount() {
             .then(actualCourse => {
                     this.state.courses.push(actualCourse)
                     this.setState(this.state)
+                document.getElementById("courseTitleFld").value=""
                 }
             )
-        document.getElementById("courseTitleFld").value=""
     }
 
     deleteCourse = (courseToDelete) => {
