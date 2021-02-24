@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import {deleteCourse} from "../../services/course-service";
-import '../../styles/course-card.css'
+import './course-card.css'
 import js from '../../images/js.jpg'
 import bs from '../../images/bootstrap.png'
 import r from '../../images/react.png'

@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/course-manager.css'
+import './course-manager.css'
 import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/course-grid";
 import {BrowserRouter, Route} from "react-router-dom";

@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import '../../styles/course-editor.css'
+import './course-editor.css'
 const CourseEditor = ({history}) => {
     return(
 
