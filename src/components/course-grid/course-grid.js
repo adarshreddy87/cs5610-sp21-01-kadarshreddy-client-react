@@ -12,12 +12,6 @@ const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
                     <table className="table">
                         <thead>
                         <tr>
-                            <th className="d-md-none"></th>
-                            <th className="d-md-none"></th>
-                            <th className="d-md-none"></th>
-                            <th className="d-md-none"></th>
-                            <th className="d-md-none"></th>
-                            <th className="d-md-none"></th>
                             <th className="d-none d-md-table-cell">Recent Documents</th>
                             <th className="d-none d-md-table-cell">
                                 Owned by me<i className="fa fa-arrow-down"></i>
@@ -45,6 +39,7 @@ const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
                         {
                             courses.map(course =>
                                 <CourseCard course={course}
+                                            key={course._id}
                                 deleteCourse={deleteCourse}
                                 updateCourse={updateCourse}/>
                             )

@@ -29,12 +29,13 @@ const CourseCard = ({
     }
     return(
         <div className="margin-body col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        {/*<div className="card col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">*/}
+        <div className="card" style={{width: "100%", margin: "15px"}}>
         {/*<div className="container">*/}
         {/*<div className="border">*/}
             <img className="card-img"
                  src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/react.png"
                  alt="..."/>
+
             <div className="card-body">
                 <h5 className="card-title">{course.title}</h5>
                 {
@@ -48,23 +49,25 @@ const CourseCard = ({
                 <a href="/editor" className="btn btn-primary">
                     {course.title}
                 </a>
+            <div>
+                {
+                    !editing &&
+                    <i onClick={() => setEditing(true)}
+                       className="btn fa fa-edit float-right"></i>
+                }
+                {
+                    editing &&
+                    <i onClick={() => saveTitle()}
+                       className="check-on-image mt-2 fas fa-check"></i>
+                }
+                {
+                    editing &&
+                    <i onClick={() => deleteCourse(course)}
+                       className="trash-on-image mt-2 fas fa-trash"></i>
+                }
             </div>
-            {
-                !editing &&
-                <i onClick={() => setEditing(true)}
-                   className="btn fa fa-edit float-right"></i>
-            }
-            {
-                editing &&
-                <i onClick={() => saveTitle()}
-                   className="check-on-image mt-2 fas fa-check"></i>
-            }
-            {
-                editing &&
-                <i onClick={() => deleteCourse(course)}
-                   className="trash-on-image mt-2 fas fa-trash"></i>
-            }
-        {/*</div>*/}
+        </div>
+        </div>
         </div>
     )
 }
