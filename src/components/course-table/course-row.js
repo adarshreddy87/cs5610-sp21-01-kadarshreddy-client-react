@@ -48,12 +48,12 @@ const CourseRow = ({deleteCourse,
                     editing &&
                     <i onClick={() => saveTitle()
                         }
-                       className="btn fas fa-check"></i>
+                       className="btn fas fa-check" style={{color:"green"}}></i>
                 }
                 {
                     editing &&
                     <i onClick={() => deleteCourse(course)}
-                       className="btn fas fa-trash"></i>
+                       className="btn fas fa-trash" style={{color:"red"}}></i>
                 }
             </td>
         </tr>
