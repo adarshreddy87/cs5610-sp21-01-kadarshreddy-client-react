@@ -53,37 +53,32 @@ const CourseEditor = ({history}) => {
                                 </div>
                                 <div className="col-10">
                                     <ul className="list-group">
-                                        <li className="btn m-btn btn-block list-group-item active">
+                                        <li className="btn btn-block list-group-item active">
                                             Module 1 -jQuery
                                             <i className="fa-pull-right fa fa-trash"></i>
                                         </li>
-                                        <li className="btn m-btn btn-block list-group-item">
+                                        <li className="btn btn-block list-group-item">
                                             Module 2-React
                                             <i className="fa-pull-right fa fa-trash"></i>
                                         </li>
-                                        <li className="btn m-btn btn-block list-group-item">Module 3-Redux
+                                        <li className="btn btn-block list-group-item">Module 3-Redux
                                             <i className="float-right fa fa-trash"></i>
                                         </li>
-                                        <li className="btn m-btn btn-block list-group-item">Module 4-Native
+                                        <li className="btn btn-block list-group-item">Module 4-Native
                                             <i className="float-right fa fa-trash"></i>
                                         </li>
-                                        <li className="btn m-btn btn-block list-group-item">Module 5-Angular
+                                        <li className="btn btn-block list-group-item">Module 5-Angular
                                             <i className="float-right fa fa-trash"></i>
                                         </li>
-                                        <li className="btn m-btn btn-block list-group-item">Module 6-Node
+                                        <li className="btn btn-block list-group-item">Module 6-Node
                                             <i className="float-right fa fa-trash"></i>
                                         </li>
-                                        <li className="btn m-btn btn-block list-group-item">Module 7-Mongo
+                                        <li className="btn btn-block list-group-item">Module 7-MongoDB
                                             <i className="float-right fa fa-trash"></i>
                                         </li>
-                                        <div className="row">
-                                            <div className="col-10"></div>
-                                            <div className="col-2">
-                                                <a className="btn a-btn fa fa-plus fa-2x" href="">
+                                        <li className="btn m-btn fa fa-plus fa-2x list-group-item" href="">
                                                     {/*<i className="pull-right fa fa-plus fa-2x"></i>*/}
-                                                </a>
-                                            </div>
-                                        </div>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div className="col-1">
