@@ -25,7 +25,8 @@ const ModuleList = (
                 {myModules.map(module =>
                     <li className= {`list-group-item ${module._id === moduleId ? 'active': ""}`}
                         key={`${module._id}`}>
-                        <EditableItem to={`/courses/${layout}/editor/${courseId}/${module._id}`}
+                        <EditableItem
+                            to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                                       deleteItem={deleteModule}
                                       updateItem={updateModule}
                                       item={module}/>
@@ -33,7 +34,7 @@ const ModuleList = (
                 )}
                 <li className="list-group-item">
                     <i onClick={() => createModule(courseId)}
-                       className="fas fa-plus fa-2x text-dark float-right"></i>
+                       className="fas fa-plus fa-2x text-dark"></i>
                 </li>
             </ul>
         </div>
@@ -64,11 +65,11 @@ const dtpm = (dispatch) => {
                     type: "UPDATE_MODULE",
                     module: module
                 })),
-        findModulesByCourse: (courseId) => {
-            moduleService.findModulesByCourse(courseId)
-                .then(theModules => dispatch({
-                    type: "FIND_MODULES_BY_COURSE",
-                    modules: theModules})
+        findModulesForCourse: (courseId) => {
+            moduleService.findModulesForCourse(courseId)
+                .then(modules => dispatch({
+                    type: "FIND_MODULES_FOR_COURSE",
+                    modules: modules})
                 )
         }
     }

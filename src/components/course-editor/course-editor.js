@@ -20,7 +20,6 @@ const reducer = combineReducers({
 const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
-    console.log(history.location.pathname)
     const {layout,courseId, moduleId} = useParams();
     const [courseName, setCourseName] = useState({title: ""})
     useEffect( () => {
@@ -32,11 +31,14 @@ const CourseEditor = ({history}) => {
             <div className="container-fluid">
                 <div>
                     <h2>
-                        <a href={`/courses/${layout}`}  className="fa fa-arrow-left"></a>
+                        <Link to={`/courses/${layout}`}>
+                            <i className="fa fa-arrow-left"></i>
+                        </Link>
                         {courseName.title}
+
                     </h2>
+                    &nbsp;&nbsp;
                 </div>
-                <br/>
                 <div className="row">
                     <div className="col-4">
                         <ModuleList/>

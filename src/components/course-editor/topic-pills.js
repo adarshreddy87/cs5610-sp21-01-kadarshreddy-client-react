@@ -6,7 +6,7 @@ import topicService from "../../services/topic-service"
 
 const TopicPills = ({
                         topics = [],
-                        findTopicsByLesson,
+                        findTopicsForLesson,
                         createTopicForLesson,
                         deleteTopic,
                         updateTopic,
@@ -18,14 +18,17 @@ const TopicPills = ({
             typeof lessonId != "undefined" &&
             moduleId != "undefined" &&
             typeof moduleId != "undefined" ) {
-            findTopicsByLesson(lessonId)
+            findTopicsForLesson(lessonId)
         } else {
             setTopicToEmpty(topicId)
         }
     }, [lessonId, moduleId])
     return(
-        <div className="p-3 bg-dark text-white">
+        <div>
+        <div className="bg-dark text-white">
             <h3> Topics</h3>
+        </div>
+            <div>
             <ul className="nav nav-pills bg-light">
                 {
                     topics.map(topic =>
@@ -40,9 +43,11 @@ const TopicPills = ({
                     )
                 }
                 <li>
-                    <i onClick={() => createTopicForLesson(lessonId, moduleId)} className="fas fa-plus-circle fa-2x text-danger"></i>
+                    <i onClick={() => createTopicForLesson(lessonId, moduleId)}
+                       className="fas fa-plus-circle fa-2x text-danger"></i>
                 </li>
             </ul>
+        </div>
         </div>
 
     )
@@ -68,14 +73,14 @@ const dtpm = (dispatch) => {
         createTopicForLesson: (lessonId, moduleId) => {
             if (!(lessonId != "undefined" &&
                 typeof lessonId != "undefined" && moduleId != "undefined" && typeof moduleId != "undefined")){
-                alert("Please select a lesson first to add the topic to")
+                alert("Please select the Lesson first")
             } else {topicService.createTopicForLesson(lessonId, {title: "New Topic"})
                 .then(theActualTopic => dispatch({
                     type: "CREATE_TOPIC",
                     topic: theActualTopic
                 }))}},
-        findTopicsByLesson: (lessonId) => {
-            topicService.findTopicsByLesson(lessonId)
+        findTopicsForLesson: (lessonId) => {
+            topicService.findTopicsForLesson(lessonId)
                 .then(topics => dispatch({
                     type: "FIND_TOPIC_BY_LESSON",
                     topics : topics})

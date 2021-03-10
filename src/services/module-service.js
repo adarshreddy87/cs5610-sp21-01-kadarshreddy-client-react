@@ -20,7 +20,7 @@ export const updateModule = (moduleId, module) =>
         }
     }).then(response => response.json())
 
-export const findModulesByCourse = (courseId) =>
+export const findModulesForCourse = (courseId) =>
     fetch(`${COURSES_URL}/${courseId}/modules`)
         .then(response => response.json())
 
@@ -34,7 +34,7 @@ export const deleteModule = (moduleId) =>
     }).then(response => response.json())
 
 const api = {
-    findModulesByCourse,
+    findModulesForCourse,
     createModuleForCourse,
     deleteModule,
     updateModule,

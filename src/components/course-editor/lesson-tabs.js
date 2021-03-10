@@ -6,9 +6,8 @@ import lessonService from "../../services/lesson-service"
 // import moduleService from "../../services/module-service";
 
 const LessonTabs = ({
-                        lessons=[
-                        ],
-                        findLessonsByModule,
+                        lessons=[],
+                        findLessonsForModule,
                         createLessonForModule,
                         deleteLesson,
                         updateLesson,
@@ -16,21 +15,24 @@ const LessonTabs = ({
                     }) => {
     const {layout,courseId, moduleId,lessonId} = useParams();
     useEffect(() => {
-        if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
-            findLessonsByModule(moduleId)
+        if(moduleId !== "undefined") {
+            findLessonsForModule(moduleId)
         } else {
             setLessonsToEmpty(moduleId)
         }
     }, [moduleId, courseId])
     return(
-        <div className="p-3 bg-dark text-white">
+        <div>
+        <div className="bg-dark text-white">
             <h3>Lessons</h3>
-            <ul className="nav nav-tabs bg-light">
+        </div>
+        <div>
+            <ul className="nav nav-tabs">
                 {
                     lessons.map(lesson =>
-                        <li className="nav-item active" key={`${lesson._id}`}>
+                        <li className="nav-item" key={`${lesson._id}`}>
                             <EditableItem
-                                to={`/courses/${layout}/editor/${courseId}/${moduleId}/${lesson._id}`}
+                                to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                 deleteItem={deleteLesson}
                                 updateItem={updateLesson}
                                 item={lesson}
@@ -39,9 +41,11 @@ const LessonTabs = ({
                     )
                 }
                 <li>
-                    <i onClick={() => createLessonForModule(moduleId)} className="fas fa-plus-circle fa-2x text-danger"></i>
+                    <i onClick={() => createLessonForModule(moduleId)}
+                       className="fas fa-plus-circle fa-2x text-danger"></i>
                 </li>
             </ul>
+        </div>
         </div>
     )}
 
@@ -51,16 +55,16 @@ const stpm =(state) => ({
 
 const dtpm =(dispatch) => {
     return {
-        findLessonsByModule: (moduleId) => {
-            lessonService.findLessonsByModule(moduleId).then(lessons => dispatch({
+        findLessonsForModule: (moduleId) => {
+            lessonService.findLessonsForModule(moduleId).then(lessons => dispatch({
                 type: "FIND_LESSONS",
                 lessons: lessons
             }))
         },
         createLessonForModule: (moduleId) => {
 
-            if(!(moduleId !== "undefined" && typeof moduleId !== "undefined")) {
-                alert("Please select the module first to add the lesson to")
+            if(!(moduleId !== "undefined")) {
+                alert("Please select the Module first")
             }
             else{
                 lessonService.createLessonForModule(moduleId, {title: "New Lesson"}).then(
