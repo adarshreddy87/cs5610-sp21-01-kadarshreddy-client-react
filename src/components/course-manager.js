@@ -4,6 +4,7 @@ import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/course-grid";
 import {BrowserRouter, Route} from "react-router-dom";
 import courseService, {createCourse, findAllCourses,deleteCourse} from "../services/course-service";
+import CourseEditor from "./course-editor/course-editor";
 
 export default class CourseManager extends React.Component{
     state = {
@@ -103,6 +104,12 @@ componentDidMount() {
                                  deleteCourse={this.deleteCourse}
                                  updateCourse={this.updateCourse}/>
                 </Route>
+                    <Route path={["/courses/:layout/edit/:courseId/:moduleId/:lessonId/:topicId",
+                        "/courses/:layout/edit/:courseId/:moduleId/:lessonId",
+                        "/courses/:layout/edit/:courseId/:moduleId",
+                        "/courses/:layout/edit/:courseId"]}
+                           render={(props) => <CourseEditor {...props}/>}>
+                    </Route>
                 <footer id ="footer">
                     <em onClick={this.addCourse} id="footerIcon" className="fa fa-plus-circle fa-3x color-red"></em>
                 </footer>

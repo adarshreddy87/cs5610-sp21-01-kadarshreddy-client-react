@@ -6,7 +6,7 @@ import {BrowserRouter, Link, Route} from "react-router-dom";
 import CourseGrid from "./components/course-grid/course-grid";
 import CourseTable from "./components/course-table/course-table";
 import React from "react";
-import HomePage from "./components/HomePage";
+// import HomePage from "./components/HomePage";
 
 function App() {
   return (

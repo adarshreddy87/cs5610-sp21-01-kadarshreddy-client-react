@@ -1,116 +1,53 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useParams} from "react-router-dom";
+import moduleReducer from "../../reducers/module-reducer";
+import lessonReducer from "../../reducers/lesson-reducer";
+import topicReducer from "../../reducers/topic-reducer";
+import {combineReducers, createStore} from "redux";
+import {Provider} from "react-redux";
+import ModuleList from "./module-list";
+import LessonTabs from "./lesson-tabs";
+import TopicPills from "./topic-pills";
 import './course-editor.css'
+import courseService from "../../services/course-service";
+
+const reducer = combineReducers({
+    moduleReducer:moduleReducer,
+    lessonReducer:lessonReducer,
+    topicReducer:topicReducer
+})
+
+const store = createStore(reducer)
+
 const CourseEditor = ({history}) => {
+    console.log(history.location.pathname)
+    const {layout,courseId, moduleId} = useParams();
+    const [courseName, setCourseName] = useState({title: ""})
+    useEffect( () => {
+        courseService.findCourseById(courseId).then(course => {setCourseName({title: course.title})})
+    }, [courseId]);
+
     return(
-
-            <div>
-                <div className="row navigation-style">
-                    <div className="col-1"></div>
-                    <div className="col-1 navigation-title">
-                    <Link to="/courses">
-                        <i style={{color:"white"}} onClick={() => history.goBack()} className="fa fa-times fa-2x"></i>
-                    </Link>
+        <Provider store={store}>
+            <div className="container-fluid">
+                <div>
+                    <h2>
+                        <a href={`/courses/${layout}`}  className="fa fa-arrow-left"></a>
+                        {courseName.title}
+                    </h2>
+                </div>
+                <br/>
+                <div className="row">
+                    <div className="col-4">
+                        <ModuleList/>
                     </div>
-                    <div className="navigation-title col-2">
-                        <h5>CS5610 - Web Dev</h5>
-                    </div>
-                    <div className="tab-padding col-8">
-                        <ul className="nav nav-tabs nav-justified">
-                            <li className="nav-item">
-                                <a className="a-btn btn nav-link" href="#">
-                                    Build
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="a-btn nv-btn btn nav-link active" href="#">Pages</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="a-btn btn nav-link" href="#">Theme</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="a-btn btn nav-link" href="#">Store</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="a-btn btn nav-link" href="#">Apps</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="btn a-btn nav-link" href="#">Settings</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link btn a-btn" href="#">
-                                    <i className="fa fa-plus fa-2x"></i>
-                                </a>
-                            </li>
-                        </ul>
+                    <div className='col-8'>
+                        <LessonTabs/>
+                        <TopicPills/>
                     </div>
                 </div>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="module-nav col-4">
-                            <div className="row">
-                                <div className="col-1">
-                                </div>
-                                <div className="col-10">
-                                    <ul className="list-group">
-                                        <li className="btn btn-block list-group-item active">
-                                            Module 1 -jQuery
-                                            <i className="fa-pull-right fa fa-trash"></i>
-                                        </li>
-                                        <li className="btn btn-block list-group-item">
-                                            Module 2-React
-                                            <i className="fa-pull-right fa fa-trash"></i>
-                                        </li>
-                                        <li className="btn btn-block list-group-item">Module 3-Redux
-                                            <i className="float-right fa fa-trash"></i>
-                                        </li>
-                                        <li className="btn btn-block list-group-item">Module 4-Native
-                                            <i className="float-right fa fa-trash"></i>
-                                        </li>
-                                        <li className="btn btn-block list-group-item">Module 5-Angular
-                                            <i className="float-right fa fa-trash"></i>
-                                        </li>
-                                        <li className="btn btn-block list-group-item">Module 6-Node
-                                            <i className="float-right fa fa-trash"></i>
-                                        </li>
-                                        <li className="btn btn-block list-group-item">Module 7-MongoDB
-                                            <i className="float-right fa fa-trash"></i>
-                                        </li>
-                                        <li className="btn m-btn fa fa-plus fa-2x list-group-item" href="">
-                                                    {/*<i className="pull-right fa fa-plus fa-2x"></i>*/}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="col-1">
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <ul className="nav nav-pills nav-fill">
-                                <li className="nav-item">
-                                    <a className="a-btn btn pill-bg nav-link" href="#">Topic 1</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="a-btn btn pill-bg nav-link active" href="#">Topic 2</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="a-btn btn pill-bg nav-link" href="#">Topic 3</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="a-btn btn pill-bg nav-link" href="#">Topic 4</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="btn fa fa-plus fa-2x" href="#">
-                                        {/*<i className="fa fa-plus fa-2x"></i>*/}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-    )
-}
+        </Provider>
+    )}
 
 export default CourseEditor

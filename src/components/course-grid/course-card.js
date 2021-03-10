@@ -46,9 +46,11 @@ const CourseCard = ({
                            value={newTitle}/>
                 }
                 <p className="card-text">Some description is given for this course which is very useful.</p>
-                <a href="/editor" className="btn btn-primary">
+                <Link to={`/courses/grid/edit/${course._id}`}>
+                    <i className="btn btn-primary">
                     {course.title}
-                </a>
+                    </i>
+                </Link>
             <div>
                 {
                     !editing &&

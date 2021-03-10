@@ -23,9 +23,10 @@ const CourseRow = ({deleteCourse,
         <tr>
             <td>
                 {   !editing &&
-                    <a href="/editor" exact={true}>
+                    <Link to={`/courses/table/edit/${course._id}`}>
+                        <i className="fas fa-file-alt"></i>
                     {course.title}
-                    </a>
+                    </Link>
                 }
                 {
                     editing &&
