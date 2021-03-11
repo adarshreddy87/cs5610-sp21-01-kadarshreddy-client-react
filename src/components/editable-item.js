@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {BrowserRouter, useParams, Link, Route} from "react-router-dom";
+import './editable-item.css'
 const EditableItem = (
     {
         to="/somewhere/to/go",
@@ -17,15 +18,16 @@ const EditableItem = (
         <>
             {!editing &&
             <div>
-                <Link className={`bg-dark text-white nav-link ${active?'active':''}`} to={to}>
+                <Link className={`bg-clr all-side-margin bg-dark text-white nav-link ${active?'active':''}`} to={to}>
                     {item.title}
+                    <i onClick={() => setEditing(true)}
+                       className="fa fa-edit float-right"></i>
                 </Link>
-                <i onClick={() => setEditing(true)} className="fas fa-edit float-right text-dark"></i>
             </div>
             }
             {editing &&
             <>
-                <input className="form-control"
+                <input
                     onChange={
                         (e) => setCachedItem({
                             ...cachedItem,
@@ -34,12 +36,13 @@ const EditableItem = (
                     }
                     value={cachedItem.title}/>
                 <i onClick={() => {
+                    deleteItem(item)
+                    setEditing(false)} }
+                   className="icons-on-item fa fa-times text-danger"></i>
+                <i onClick={() => {
                     setEditing(false)
                     updateItem(cachedItem)
-                }} className="fas fa-check text-success float-right"></i>
-                <i onClick={() => {
-                    deleteItem(item)
-                    setEditing(false)} } className="fas fa-times text-danger"></i>
+                }} className="icons-on-item fa fa-check text-success"></i>
             </>
             }
         </>

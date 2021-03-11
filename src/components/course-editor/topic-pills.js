@@ -32,7 +32,7 @@ const TopicPills = ({
             <ul className="nav nav-pills bg-light">
                 {
                     topics.map(topic =>
-                        <li className="nav-item active" key={`${topic._id}`}>
+                        <li className="nav-item" key={`${topic._id}`}>
                             <EditableItem
                                 to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
                                 deleteItem={deleteTopic}
@@ -44,7 +44,7 @@ const TopicPills = ({
                 }
                 <li>
                     <i onClick={() => createTopicForLesson(lessonId, moduleId)}
-                       className="fas fa-plus-circle fa-2x text-danger"></i>
+                       className="fa fa-plus fa-2x"></i>
                 </li>
             </ul>
         </div>

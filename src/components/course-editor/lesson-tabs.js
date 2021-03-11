@@ -42,7 +42,7 @@ const LessonTabs = ({
                 }
                 <li>
                     <i onClick={() => createLessonForModule(moduleId)}
-                       className="fas fa-plus-circle fa-2x text-danger"></i>
+                       className="fas fa-plus fa-2x"></i>
                 </li>
             </ul>
         </div>
@@ -63,7 +63,7 @@ const dtpm =(dispatch) => {
         },
         createLessonForModule: (moduleId) => {
 
-            if(!(moduleId !== "undefined")) {
+            if(!(moduleId !== "undefined" && typeof moduleId !== "undefined")) {
                 alert("Please select the Module first")
             }
             else{

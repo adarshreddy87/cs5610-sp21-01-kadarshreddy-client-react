@@ -24,7 +24,6 @@ const CourseRow = ({deleteCourse,
             <td>
                 {   !editing &&
                     <Link to={`/courses/table/edit/${course._id}`}>
-                        <i className="fas fa-file-alt"></i>
                     {course.title}
                     </Link>
                 }

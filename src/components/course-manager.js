@@ -66,7 +66,7 @@ componentDidMount() {
      render(){
         return(
             <div>
-                <BrowserRouter>
+            <Route path={"/courses/table"} exact>
                 <div className="row wbdv-padding">
                     <div className="col-2 col-sm-3 col-md-1">
                         <i className="float-right fa fa-bars fa-2x"></i>
@@ -91,6 +91,39 @@ componentDidMount() {
                     </div>
                     <div className="col-md-1"></div>
                 </div>
+                <footer id ="footer">
+                    <em onClick={this.addCourse} id="footerIcon" className="fa fa-plus-circle fa-3x color-red"></em>
+                </footer>
+            </Route>
+                <Route path={"/courses/grid"} exact>
+                    <div className="row wbdv-padding">
+                        <div className="col-2 col-sm-3 col-md-1">
+                            <i className="float-right fa fa-bars fa-2x"></i>
+                        </div>
+                        <div style={{textAlign:"center"}} className="d-none d-lg-block col-md-2">
+                            <h5>Course Manager</h5>
+                        </div>
+                        <div className="col-8 col-sm-6 col-md-7">
+                            <input id="courseTitleFld"
+                                   type="text"
+                                   className="form-control
+                               search-color"
+                                // placeholder="New Course Title"
+                                   onChange={(e) => {
+                                       const newTitle = e.target.value
+                                       this.setState({title:newTitle})
+                                   }}
+                                   placeholder="New Course Title"/>
+                        </div>
+                        <div onClick={this.addCourse} className="btn col-2 col-sm-3 col-md-1">
+                            <i className="fa fa-plus-circle fa-2x float-right"></i>
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
+                    <footer id ="footer">
+                        <em onClick={this.addCourse} id="footerIcon" className="fa fa-plus-circle fa-3x color-red"></em>
+                    </footer>
+                </Route>
                 <Route path="/courses/grid" exact={true}>
                     <CourseGrid courses={this.state.courses}
                                 createCourse={this.addCourse}
@@ -105,17 +138,12 @@ componentDidMount() {
                                  updateCourse={this.updateCourse}/>
                 </Route>
                     <Route path={[
-                        "/courses/:layout/edit/:courseId/:moduleId/:lessonId/:topicId",
-                        "/courses/:layout/edit/:courseId/:moduleId/:lessonId",
-                        "/courses/:layout/edit/:courseId/:moduleId",
-                        "/courses/:layout/edit/:courseId"
-                    ]}
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId",
+                        "/courses/:layout/edit/:courseId"]}
                            render={(props) => <CourseEditor {...props}/>}>
                     </Route>
-                <footer id ="footer">
-                    <em onClick={this.addCourse} id="footerIcon" className="fa fa-plus-circle fa-3x color-red"></em>
-                </footer>
-                </BrowserRouter>
             </div>
         )
     }
