@@ -23,7 +23,7 @@ const LessonTabs = ({
     }, [moduleId, courseId])
     return(
         <div>
-        <div className="bg-dark text-white">
+        <div style={{background:"black"}} className="p-1 text-white">
             <h3>Lessons</h3>
         </div>
         <div>

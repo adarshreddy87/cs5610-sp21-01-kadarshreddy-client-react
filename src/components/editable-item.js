@@ -14,10 +14,10 @@ const EditableItem = (
     const [editing,setEditing] = useState(false)
     const [cachedItem, setCachedItem] =useState(item)
     return (
-        <div>
+        <>
             {!editing &&
             <div>
-                <Link className={`nav-link ${active?'active':''}`} to={to}>
+                <Link className={`bg-dark text-white nav-link ${active?'active':''}`} to={to}>
                     {item.title}
                 </Link>
                 <i onClick={() => setEditing(true)} className="fas fa-edit float-right text-dark"></i>
@@ -25,7 +25,7 @@ const EditableItem = (
             }
             {editing &&
             <>
-                <input
+                <input className="form-control"
                     onChange={
                         (e) => setCachedItem({
                             ...cachedItem,
@@ -36,13 +36,13 @@ const EditableItem = (
                 <i onClick={() => {
                     setEditing(false)
                     updateItem(cachedItem)
-                }} className="fas fa-check text-success"></i>
+                }} className="fas fa-check text-success float-right"></i>
                 <i onClick={() => {
                     deleteItem(item)
                     setEditing(false)} } className="fas fa-times text-danger"></i>
             </>
             }
-        </div>
+        </>
     )
 }
 

@@ -19,7 +19,7 @@ const ModuleList = (
         findModulesForCourse(courseId)
     }, [])
     return(
-        <div className="p-3 bg-dark text-white">
+        <div style={{background:"black"}} className="p-3 text-white">
             <h3>Modules</h3>
             <ul className="list-group" >
                 {myModules.map(module =>
