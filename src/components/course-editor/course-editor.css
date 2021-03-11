@@ -37,3 +37,8 @@
 .nav-tabs > .active > a {
     background-color: #242120 ;
 }
+
+.plus-btn{
+    alignment: center;
+    text-align: center;
+}
