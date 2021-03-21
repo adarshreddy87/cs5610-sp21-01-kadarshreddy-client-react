@@ -27,6 +27,7 @@ export const createCourse = (course) => {
         },
         body: JSON.stringify(course)
     }).then(response => response.json())
+
 }
 
 export const updateCourse = (courseId,course) => {
