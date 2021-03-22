@@ -138,7 +138,7 @@ componentDidMount() {
                                  updateCourse={this.updateCourse}/>
                 </Route>
                     <Route path={[
-                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets/:widgetId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets",
                         "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
                         "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
                         "/courses/:layout/edit/:courseId/modules/:moduleId",

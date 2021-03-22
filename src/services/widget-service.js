@@ -1,4 +1,4 @@
-const WIDGET_URL = "http://cs5610-sp21-01-kadarshreddy.herokuapp.com/api";
+const WIDGET_URL = "http://localhost:8080/api";
 
 
 export const createWidget = (tid, widget) => fetch(`${WIDGET_URL}/topics/${tid}/widgets`, {

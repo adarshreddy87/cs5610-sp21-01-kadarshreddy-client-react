@@ -15,15 +15,15 @@ const WidgetList = ({
                         deleteWidget,
                         createWidgetForTopic
                     }) => {
-    const {layout,courseId,moduleId, lessonId ,topicId,widgetId} = useParams();
+    const {layout,courseId,moduleId, lessonId ,topicId} = useParams();
     const [editingWidget, setEditingWidget] = useState({})
     const [editing, setEditing] = useState(false)
     useEffect(() => {
-        if (topicId != "undefined" && typeof topicId != "undefined" && moduleId != "undefined" &&
-            typeof moduleId != "undefined" && lessonId != "undefined" && typeof lessonId != "undefined") {
+        if(topicId!="undefined" && typeof topicId!="undefined" && moduleId!="undefined" &&
+            typeof moduleId!="undefined" && lessonId!="undefined" && typeof lessonId!="undefined") {
             findWidgetsForTopic(topicId)
         }
-        else {
+        else{
             setWidgetToEmpty();
         }
 
@@ -41,14 +41,14 @@ const WidgetList = ({
 
                             {
                                 widget.type === "HEADING" &&
-                                <HeadingWidget to={`/courses/${layout}/editor/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topicId}/widgets/${widgetId}`}
-                                               // editing={editingWidget.id === widgetId}
+                                <HeadingWidget to={`/courses/${layout}/editor/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topicId}/widgets/${widget.id}`}
+                                               editing={editingWidget.id === widget.id}
                                                widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                             }
                             {
                                 widget.type === "PARAGRAPH" &&
                                 <ParagraphWidget
-                                    // editing={editingWidget.id === widget.id}
+                                    editing={editingWidget.id === widget.id}
                                     widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                             }
                         </li>
@@ -82,7 +82,7 @@ const dtpm = (dispatch) => {
                 typeof lessonId != "undefined" && moduleId != "undefined" && typeof moduleId != "undefined" && tid != "undefined" &&
                 typeof tid != "undefined") )
             {
-                alert("Invalid operation. You have to select topic first!")
+                alert("You have to select topic first!")
             } else {
                 widgetService.createWidget(tid,{type: "HEADING", size: 1, text: "New Widget"}).then(
                     theActualWidget => dispatch({
