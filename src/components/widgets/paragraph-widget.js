@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import {BrowserRouter, useParams, Link, Route} from "react-router-dom";
-import {deleteWidget} from "../../../services/widget-service";
+import {deleteWidget} from "../../services/widget-service";
 
 const ParagraphWidget = ({widget, editing, updateWidget,deleteWidget}) => {
     const [cachedWidget, setCachedWidget] =useState(widget)

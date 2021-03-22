@@ -10,7 +10,7 @@ import LessonTabs from "./lesson-tabs";
 import TopicPills from "./topic-pills";
 import './course-editor.css'
 import courseService from "../../services/course-service";
-import WidgetList from "./widgets/widget-list";
+import WidgetList from "../widgets/widget-list";
 import widgetReducer from "../../reducers/widget-reducer";
 
 const reducer = combineReducers({

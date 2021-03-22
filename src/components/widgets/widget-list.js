@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
-import widgetService from "../../../services/widget-service";
+import widgetService from "../../services/widget-service";
 import {useParams} from "react-router-dom";
 // import topicService from "../../services/topic-service";
 import {connect} from "react-redux";
@@ -15,7 +15,7 @@ const WidgetList = ({
                         deleteWidget,
                         createWidgetForTopic
                     }) => {
-    const {layout,courseId,moduleId, lessonId ,topicId} = useParams();
+    const {layout,courseId,moduleId, lessonId ,topicId,widgetId} = useParams();
     const [editingWidget, setEditingWidget] = useState({})
     const [editing, setEditing] = useState(false)
     useEffect(() => {
@@ -41,14 +41,14 @@ const WidgetList = ({
 
                             {
                                 widget.type === "HEADING" &&
-                                <HeadingWidget to={`/courses/${layout}/editor/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topicId}/widgets/${widget.id}`}
-                                               editing={editingWidget.id === widget.id}
+                                <HeadingWidget to={`/courses/${layout}/editor/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topicId}/widgets/${widgetId}`}
+                                               // editing={editingWidget.id === widgetId}
                                                widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                             }
                             {
                                 widget.type === "PARAGRAPH" &&
                                 <ParagraphWidget
-                                    editing={editingWidget.id === widget.id}
+                                    // editing={editingWidget.id === widget.id}
                                     widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                             }
                         </li>
