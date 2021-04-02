@@ -1,20 +1,45 @@
 import React, {useState} from "react"
-import {BrowserRouter, useParams, Link, Route} from "react-router-dom";
-// import {deleteWidget} from "../../services/widget-service";
 
-const ParagraphWidget = ({widget, editing, updateWidget,deleteWidget}) => {
+const ImageWidget = ({widget, editing,updateWidget,deleteWidget}) =>
+{
     const [cachedWidget, setCachedWidget] =useState(widget)
     const [isEditing,setIsEditing] = useState(false)
-    return(
-        <>
+    return (
+
+        <div>
             {!isEditing &&
             <>
                 <i onClick={() => setIsEditing(true)} className="fas fa-2x fa-cog float-right"></i>
             </>
             }
             {
+                !isEditing &&
+                <img width={widget.width} height={widget.height} src={widget.src}/>
+            }
+            {
                 isEditing &&
                 <>
+                    <>Image URL</>
+                    <input value={cachedWidget.src} onChange={
+                        (e) => setCachedWidget({
+                            ...cachedWidget,
+                            src: e.target.value
+                        })
+                    }className="form-control"/>
+                    <>Image Width</>
+                    <input value={cachedWidget.width} onChange={
+                        (e) => setCachedWidget({
+                            ...cachedWidget,
+                            width: e.target.value
+                        })
+                    }className="form-control"/>
+                    <>Image Height</>
+                    <input value={cachedWidget.height} onChange={
+                        (e) => setCachedWidget({
+                            ...cachedWidget,
+                            height: e.target.value
+                        })
+                    }className="form-control"/>
                     <select value={cachedWidget.type}
                             onChange={
                                 (e) => setCachedWidget({
@@ -28,16 +53,6 @@ const ParagraphWidget = ({widget, editing, updateWidget,deleteWidget}) => {
                         <option value={"IMAGE"}>IMAGE</option>
                         <option value={"LIST"}>LIST</option>
                     </select>
-                    <textarea value={widget.text}
-                              onChange={
-                                  (e) => setCachedWidget({
-                                      ...cachedWidget,
-                                      text: e.target.value
-                                  })
-                              }
-                              value={cachedWidget.text} className="form-control"
-                              className="form-control"></textarea>
-                    <br/>
                     <i onClick={() => {
                         updateWidget(widget.id, cachedWidget)
                         setIsEditing(false)
@@ -48,15 +63,10 @@ const ParagraphWidget = ({widget, editing, updateWidget,deleteWidget}) => {
                         setIsEditing(false)} } className="fas fa-trash float-right"></i>
                 </>
             }
-            {
-                !isEditing &&
-                <p>
-                    {widget.text}
-                </p>
-            }
-        </>
+            {/*{JSON.stringify(widget)}*/}
 
+        </div>
     )
 }
 
-export default ParagraphWidget
+export default ImageWidget

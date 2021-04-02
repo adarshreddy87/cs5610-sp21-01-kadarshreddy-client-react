@@ -5,6 +5,8 @@ import widgetService from "../../services/widget-service";
 import {useParams} from "react-router-dom";
 // import topicService from "../../services/topic-service";
 import {connect} from "react-redux";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 // import EditableItem from "../editable-item";
 
 const WidgetList = ({
@@ -48,6 +50,19 @@ const WidgetList = ({
                             {
                                 widget.type === "PARAGRAPH" &&
                                 <ParagraphWidget
+                                    editing={editingWidget.id === widget.id}
+                                    widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
+                            }
+
+                            {
+                                widget.type === "LIST" &&
+                                <ListWidget
+                                    editing={editingWidget.id === widget.id}
+                                    widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
+                            }
+                            {
+                                widget.type === "IMAGE" &&
+                                <ImageWidget
                                     editing={editingWidget.id === widget.id}
                                     widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                             }
