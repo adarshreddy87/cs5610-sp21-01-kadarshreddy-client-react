@@ -6,6 +6,8 @@ import {BrowserRouter, Link, Route} from "react-router-dom";
 import CourseGrid from "./components/course-grid/course-grid";
 import CourseTable from "./components/course-table/course-table";
 import React from "react";
+import Quiz from "./quizzes/quiz";
+import QuizzesList from "./quizzes/quizzes_list";
 // import HomePage from "./components/HomePage";
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
       <BrowserRouter>
           {/*<Route path="/" component={Home}/>*/}
           <Route path="/courses" component={CourseManager}></Route>
+          <Route path="/courses/:courseId/quizzes/:quizId" component={Quiz}/>
+          <Route path ="/courses/:courseId/quizzes" exact={true}  component={QuizzesList}/>
           {/*<Route path="/" exact={true}  component={HomePage}/>*/}
           {/*<Route path="/editor" component={CourseEditor}/>*/}
           <Route path="/editor" render={(props) =>

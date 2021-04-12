@@ -38,6 +38,9 @@ const CourseRow = ({deleteCourse,
             <td className="d-none d-md-table-cell">{course.ownedBy}</td>
             <td className="d-none d-lg-table-cell">{course.lastModified}</td>
             <td>
+                <a href = {`/courses/${course._id}/quizzes`}> Quizzes</a>
+            </td>
+            <td>
                 {
                     !editing &&
                     <i onClick={() => setEditing(true)}
