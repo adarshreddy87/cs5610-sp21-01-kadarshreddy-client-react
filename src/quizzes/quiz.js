@@ -18,7 +18,7 @@ const Quiz = () => {
         if (graded) {
             console.log(quiz._id)
             console.log(questions)
-            QuizService.submitQuiz(quiz._id, questions).then(res => setAttempt(res));
+            // QuizService.submitQuiz(quiz._id, questions).then(res => setAttempt(res));
         }
     }, [quizId, graded])
     return (
