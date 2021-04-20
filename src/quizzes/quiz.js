@@ -9,18 +9,21 @@ const Quiz = () => {
     const [quiz, setQuiz] = useState({});
     const [questions, setQuestions] = useState([]);
     const [graded, setGraded] = useState(false)
-    const [attempt, setAttempt] = useState({})
+    const [attempt, setAttempt] = useState([])
     useEffect(() => {
         QuizService.findQuizById(quizId)
-            .then(res => setQuiz(res));
+            .then(result => setQuiz(result));
         QuestionService.findQuestionsForQuiz(quizId)
             .then(res => setQuestions(res));
         if (graded) {
-            console.log(quiz._id)
-            console.log(questions)
-            // QuizService.submitQuiz(quiz._id, questions).then(res => setAttempt(res));
+            // console.log(quiz._id)
+            // console.log(questions)
+            QuizService.submitQuiz(quiz._id, questions)
+                .then(res => setAttempt(res))
+
+            // console.log(JSON.parse(hi)
         }
-    }, [quizId, graded])
+    }, [quizId,graded])
     return (
         <div>
             <div className='row'>
@@ -47,10 +50,8 @@ const Quiz = () => {
                     graded &&
                     <div>
 
-                        <h2>submit score: {attempt.score}</h2>
-                        <h2>
-                            submit id: {attempt._id}
-                        </h2>
+                        <h3>Total score: {attempt["score"]}</h3>
+
                     </div>
                 }
             </div>
