@@ -7,7 +7,8 @@ import CourseGrid from "./components/course-grid/course-grid";
 import CourseTable from "./components/course-table/course-table";
 import React from "react";
 import Quiz from "./quizzes/quiz";
-import QuizzesList from "./quizzes/quizzes_list";
+import QuizzesList from "./quizzes/quizzes";
+import QuizAttempts from "./quizzes/quiz-attempts";
 // import HomePage from "./components/HomePage";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
           <Route path="/courses" component={CourseManager}></Route>
           <Route path="/courses/:courseId/quizzes/:quizId" component={Quiz}/>
           <Route path ="/courses/:courseId/quizzes" exact={true}  component={QuizzesList}/>
+          <Route path='/courses/:courseId/quizzes/:quizId/attempts' exact={true}>
+              <QuizAttempts/>
+          </Route>
           {/*<Route path="/" exact={true}  component={HomePage}/>*/}
           {/*<Route path="/editor" component={CourseEditor}/>*/}
           <Route path="/editor" render={(props) =>
